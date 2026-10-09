@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://mvt8sp0ci2mu" path="res://scripts/levels/matariki/star.gd" id="2_2vfwr"]
 [ext_resource type="PackedScene" uid="uid://b02hlrndiu8iy" path="res://scenes/player.tscn" id="2_6im2a"]
 [ext_resource type="PackedScene" uid="uid://bx2wjsi6drmmf" path="res://scenes/levels/matariki/constellation_puzzle.tscn" id="2_f3imc"]
-[ext_resource type="PackedScene" uid="uid://cnk0475h0lwc2" path="res://scenes/matariki_ground.tscn" id="5_iopwc"]
+[ext_resource type="PackedScene" uid="uid://cnk0475h0lwc2" path="res://scenes/levels/matariki/matariki_ground.tscn" id="5_iopwc"]
 [ext_resource type="Texture2D" uid="uid://bwfnmer85mu2o" path="res://2D_assets/sky/test_sky.jpeg" id="6_tqae7"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6im2a"]
@@ -71,7 +71,7 @@ star6 = NodePath("Waitī")
 star7 = NodePath("Waitā")
 
 [node name="Matariki" type="Area3D" parent="." unique_id=1278081269]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.2511497, 1.8772106, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.3005576, 23.514225, 29.756273)
 script = ExtResource("2_2vfwr")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Matariki" unique_id=1573737295]
@@ -81,7 +81,7 @@ shape = SubResource("BoxShape3D_6im2a")
 mesh = SubResource("BoxMesh_4xual")
 
 [node name="Pōhutukawa" type="Area3D" parent="." unique_id=1173463425]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.017502, 1.8911877, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -41.818336, 13.310945, 16.07368)
 script = ExtResource("2_2vfwr")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Pōhutukawa" unique_id=1492932518]
@@ -91,7 +91,7 @@ shape = SubResource("BoxShape3D_bu076")
 mesh = SubResource("BoxMesh_2o4pu")
 
 [node name="Tupuānuku" type="Area3D" parent="." unique_id=2103009616]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.874189, 2.058648, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.23035, 10.519151, 59.364887)
 script = ExtResource("2_2vfwr")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Tupuānuku" unique_id=442206441]
@@ -101,7 +101,7 @@ shape = SubResource("BoxShape3D_jjr17")
 mesh = SubResource("BoxMesh_gcve2")
 
 [node name="Tupuārangi" type="Area3D" parent="." unique_id=2134248688]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.116157, 1.8146105, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48.873302, 7.3467617, 9.076315)
 script = ExtResource("2_2vfwr")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Tupuārangi" unique_id=6799310]
@@ -111,7 +111,7 @@ shape = SubResource("BoxShape3D_lpsvi")
 mesh = SubResource("BoxMesh_8xrtv")
 
 [node name="Waipuna-ā-Rangi" type="Area3D" parent="." unique_id=584928568]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.954134, 1.770031, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36.631416, 6.406369, -23.62075)
 script = ExtResource("2_2vfwr")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Waipuna-ā-Rangi" unique_id=521592104]
@@ -121,7 +121,7 @@ shape = SubResource("BoxShape3D_lky11")
 mesh = SubResource("BoxMesh_m337j")
 
 [node name="Waitī" type="Area3D" parent="." unique_id=1811489364]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.623253, 1.5528822, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.283745, 21.69619, 50.732918)
 script = ExtResource("2_2vfwr")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Waitī" unique_id=1264329845]
@@ -131,7 +131,7 @@ shape = SubResource("BoxShape3D_4b1aa")
 mesh = SubResource("BoxMesh_22enj")
 
 [node name="Waitā" type="Area3D" parent="." unique_id=692170886]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.787697, 1.2828922, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.381222, 1.2359109, -18.16135)
 script = ExtResource("2_2vfwr")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Waitā" unique_id=1892506345]
