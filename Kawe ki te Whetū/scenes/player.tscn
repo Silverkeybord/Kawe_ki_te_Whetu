@@ -1,0 +1,70 @@
+[gd_scene format=3 uid="uid://b02hlrndiu8iy"]
+
+[ext_resource type="Script" uid="uid://m2gb6gqrxunm" path="res://scripts/player/player.gd" id="1_3vyb7"]
+[ext_resource type="Script" uid="uid://cigt07puyg15e" path="res://scripts/player/player_camera.gd" id="2_qhqgy"]
+[ext_resource type="Script" uid="uid://wnhqkggchhd6" path="res://scripts/player/camera_follow.gd" id="3_dqkch"]
+[ext_resource type="Shader" uid="uid://i6rp7nctaru6" path="res://advanced_visuals/shader_code/player.gdshader" id="4_dqkch"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_g4v7s"]
+height = 1.5
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_g2els"]
+radius = 0.2
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_qhqgy"]
+radius = 0.2
+
+[sub_resource type="SphereMesh" id="SphereMesh_g4v7s"]
+radius = 0.4
+height = 0.8
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_57qmd"]
+render_priority = 0
+shader = ExtResource("4_dqkch")
+shader_parameter/inner_color = Color(1, 1, 1, 1)
+shader_parameter/glow_color = Color(0.7, 0.4, 1, 1)
+shader_parameter/fresnel_power = 8.0
+shader_parameter/core_size = 1.0
+shader_parameter/glow_intensity = 10.0
+
+[node name="CharacterBody3D" type="CharacterBody3D" unique_id=473672106]
+script = ExtResource("1_3vyb7")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1616892687]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
+shape = SubResource("CapsuleShape3D_g4v7s")
+
+[node name="spring_arm_piviot" type="Node3D" parent="." unique_id=1782938155 node_paths=PackedStringArray("player", "xy_spring_arm", "z_spring_arm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9656341, 0)
+script = ExtResource("2_qhqgy")
+player = NodePath("..")
+xy_spring_arm = NodePath("xy_axis")
+z_spring_arm = NodePath("z_axis")
+
+[node name="z_axis" type="SpringArm3D" parent="spring_arm_piviot" unique_id=599770322]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)
+shape = SubResource("SphereShape3D_g2els")
+spring_length = 0.75
+
+[node name="z_marker" type="Marker3D" parent="spring_arm_piviot/z_axis" unique_id=1011208591]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1, 0, 0)
+
+[node name="xy_axis" type="SpringArm3D" parent="spring_arm_piviot" unique_id=1886192064]
+shape = SubResource("SphereShape3D_qhqgy")
+spring_length = 8.0
+
+[node name="xy_marker" type="Marker3D" parent="spring_arm_piviot/xy_axis" unique_id=1242264865]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1, 0, 0)
+
+[node name="camera_follow" type="Node3D" parent="spring_arm_piviot" unique_id=1907725712 node_paths=PackedStringArray("xy_camera_marker", "z_camera_marker")]
+script = ExtResource("3_dqkch")
+xy_camera_marker = NodePath("../xy_axis/xy_marker")
+z_camera_marker = NodePath("../z_axis/z_marker")
+lerp_power = 16.0
+
+[node name="Camera3D" type="Camera3D" parent="spring_arm_piviot/camera_follow" unique_id=911568017]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=456788064]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("SphereMesh_g4v7s")
+surface_material_override/0 = SubResource("ShaderMaterial_57qmd")
