@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://cnk0475h0lwc2"]
+
+[ext_resource type="PackedScene" uid="uid://b0if7hsy8yy1s" path="res://3D_assets/ground/Varied_Terrain.glb" id="1_cx5aj"]
+[ext_resource type="Texture2D" uid="uid://bmfvyq2awhm1u" path="res://2D_assets/ground/4 blur.png" id="2_1d07s"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_scibw"]
+albedo_texture = ExtResource("2_1d07s")
+uv1_scale = Vector3(0.1, 0.1, 0.1)
+uv1_triplanar = true
+uv2_scale = Vector3(10, 10, 10)
+
+[node name="Varied_Terrain2" unique_id=835595786 instance=ExtResource("1_cx5aj")]
+
+[node name="Varied_Terrain" parent="." index="0" unique_id=3884277]
+surface_material_override/0 = SubResource("StandardMaterial3D_scibw")

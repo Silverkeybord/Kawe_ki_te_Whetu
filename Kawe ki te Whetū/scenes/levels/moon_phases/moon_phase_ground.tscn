@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://drmsqnuiwrqmy"]
+
+[ext_resource type="PackedScene" uid="uid://ctl0x11625f4s" path="res://3D_assets/ground/Terrain_RollingHills_CentreHill_v2.glb" id="1_4kv8m"]
+[ext_resource type="Texture2D" uid="uid://bmfvyq2awhm1u" path="res://2D_assets/ground/4 blur.png" id="2_7l2cq"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hpxim"]
+albedo_texture = ExtResource("2_7l2cq")
+uv1_scale = Vector3(0.1, 0.1, 0.1)
+uv1_triplanar = true
+
+[node name="Terrain_RollingHills_CentreHill_v2" unique_id=556822256 instance=ExtResource("1_4kv8m")]
+
+[node name="RollingHillsTerrain" parent="." index="0" unique_id=315203206]
+surface_material_override/0 = SubResource("StandardMaterial3D_hpxim")

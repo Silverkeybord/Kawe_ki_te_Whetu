@@ -1,0 +1,24 @@
+[gd_resource type="Environment" format=3 uid="uid://baa2ql6lp5br2"]
+
+[ext_resource type="Texture2D" uid="uid://bwfnmer85mu2o" path="res://2D_assets/sky/test_sky.jpeg" id="1_4ckak"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_x1ia4"]
+panorama = ExtResource("1_4ckak")
+
+[sub_resource type="Sky" id="Sky_3cuhy"]
+sky_material = SubResource("PanoramaSkyMaterial_x1ia4")
+
+[resource]
+background_mode = 2
+background_color = Color(0.011764706, 0.19607843, 0.59607846, 1)
+sky = SubResource("Sky_3cuhy")
+fog_enabled = true
+fog_light_color = Color(0.11764706, 0.2901961, 0.43529412, 1)
+fog_sky_affect = 0.0
+fog_height = -41.43
+fog_height_density = 0.2124
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.075
+volumetric_fog_albedo = Color(0.11764706, 0.2901961, 0.43529412, 1)
+volumetric_fog_length = 60.0
+volumetric_fog_sky_affect = 0.584

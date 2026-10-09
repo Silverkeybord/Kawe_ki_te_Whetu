@@ -6,7 +6,7 @@ const GRAVITY := 40.0
 const HIDE_WAIT_TIME := 0.35
 
 @export_group("Player stats")
-@export var move_speed := 5.0
+@export var move_speed := 8.0
 @export var jump_velocity := 14.0
 
 

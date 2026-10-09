@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bi6kmohxhlt26" path="res://scripts/levels/intro_warp.gd" id="1_3wpxu"]
 [ext_resource type="PackedScene" uid="uid://b1fvxlbx2fut1" path="res://scenes/levels/moon_phases/moon_phases.tscn" id="2_2u054"]
-[ext_resource type="Shader" uid="uid://crdfnsnnwfxlo" path="res://warp_shader.gdshader" id="2_71ulb"]
+[ext_resource type="Shader" uid="uid://crdfnsnnwfxlo" path="res://advanced_visuals/shader_code/warp_shader.gdshader" id="2_71ulb"]
 [ext_resource type="FontFile" uid="uid://brcqf16f67xlg" path="res://other_assets/fonts/Boring Time.otf" id="4_2u054"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_g4v7s"]

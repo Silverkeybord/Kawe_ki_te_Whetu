@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://uf6be8hi3jip"
-path="res://.godot/imported/Terrain_RollingHills_CentreHill.glb-030fae10589a36664eebe248ea8c42b3.scn"
+uid="uid://h58jxl8cewej"
+path="res://.godot/imported/Pebble_02.glb-090859d1a945617380acd4c0360d99af.scn"
 
 [deps]
 
-source_file="res://3D_assets/ground/Terrain_RollingHills_CentreHill.glb"
-dest_files=["res://.godot/imported/Terrain_RollingHills_CentreHill.glb-030fae10589a36664eebe248ea8c42b3.scn"]
+source_file="res://3D_assets/MoonRocks_glb/Pebble_02.glb"
+dest_files=["res://.godot/imported/Pebble_02.glb-090859d1a945617380acd4c0360d99af.scn"]
 
 [params]
 
