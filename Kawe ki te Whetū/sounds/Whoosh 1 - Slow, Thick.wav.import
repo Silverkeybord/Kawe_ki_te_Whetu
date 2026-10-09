@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://6uxc2rt6l6tg"
+path="res://.godot/imported/Whoosh 1 - Slow, Thick.wav-8723d3f449d99df7a13707c610c7a8cc.sample"
+
+[deps]
+
+source_file="res://sounds/Whoosh 1 - Slow, Thick.wav"
+dest_files=["res://.godot/imported/Whoosh 1 - Slow, Thick.wav-8723d3f449d99df7a13707c610c7a8cc.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

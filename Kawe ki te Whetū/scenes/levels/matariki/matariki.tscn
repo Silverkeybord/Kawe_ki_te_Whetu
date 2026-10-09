@@ -4,6 +4,8 @@
 [ext_resource type="Script" uid="uid://mvt8sp0ci2mu" path="res://scripts/levels/matariki/star.gd" id="2_2vfwr"]
 [ext_resource type="PackedScene" uid="uid://b02hlrndiu8iy" path="res://scenes/player.tscn" id="2_6im2a"]
 [ext_resource type="PackedScene" uid="uid://bx2wjsi6drmmf" path="res://scenes/levels/matariki/constellation_puzzle.tscn" id="2_f3imc"]
+[ext_resource type="AudioStream" uid="uid://dfr7eyfynccaq" path="res://sounds/star_collect.wav" id="3_61k64"]
+[ext_resource type="AudioStream" uid="uid://c1coesxsovoye" path="res://sounds/Gears 1.wav" id="4_o01ik"]
 [ext_resource type="Environment" uid="uid://baa2ql6lp5br2" path="res://advanced_visuals/main_enviroment.tres" id="5_1rigi"]
 [ext_resource type="PackedScene" uid="uid://cnk0475h0lwc2" path="res://scenes/levels/matariki/matariki_ground.tscn" id="5_iopwc"]
 [ext_resource type="PackedScene" uid="uid://cjfyj5ty4aapw" path="res://3D_assets/MoonRocks_glb/Rock_Medium_01.glb" id="7_5h6ny"]
@@ -45,7 +47,7 @@ data = PackedVector3Array(-100, 16.4609, 100, -99.221794, 16.1952, 99.2187, -99.
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_5h6ny"]
 data = PackedVector3Array(-60, -27, -62.5, -60, 27, -62.5, -60, -27, 62.5, -60, -27, -62.5, -60, -27, 62.5, 60, -27, -62.5, -60, -27, -62.5, 60, -27, -62.5, -60, 27, -62.5, -60, -27, 62.5, -60, 27, -62.5, -60, 27, 62.5, -60, -27, 62.5, -60, 27, 62.5, 60, 27, 62.5, -60, 27, -62.5, 60, 27, 62.5, -60, 27, 62.5, -60, -27, 62.5, 60, -27, 62.5, 60, -27, -62.5, -60, -27, 62.5, 60, 27, 62.5, 60, -27, 62.5, 60, -27, -62.5, 60, -27, 62.5, 60, 27, 62.5, -60, 27, -62.5, 60, -27, -62.5, 60, 27, -62.5, -60, 27, -62.5, 60, 27, -62.5, 60, 27, 62.5, 60, -27, -62.5, 60, 27, 62.5, 60, 27, -62.5, -55.699997, -22.0507, -57.8104, -55.699997, -22.0507, 57.8104, -55.699997, 22.0507, -57.8104, -55.699997, -22.0507, -57.8104, 55.699997, -22.0507, -57.8104, -55.699997, -22.0507, 57.8104, -55.699997, -22.0507, -57.8104, -55.699997, 22.0507, -57.8104, 55.699997, -22.0507, -57.8104, -55.699997, -22.0507, 57.8104, -55.699997, 22.0507, 57.8104, -55.699997, 22.0507, -57.8104, -55.699997, -22.0507, 57.8104, 55.699997, 22.0507, 57.8104, -55.699997, 22.0507, 57.8104, -55.699997, 22.0507, -57.8104, -55.699997, 22.0507, 57.8104, 55.699997, 22.0507, 57.8104, -55.699997, -22.0507, 57.8104, 55.699997, -22.0507, -57.8104, 55.699997, -22.0507, 57.8104, -55.699997, -22.0507, 57.8104, 55.699997, -22.0507, 57.8104, 55.699997, 22.0507, 57.8104, 55.699997, -22.0507, -57.8104, 55.699997, 22.0507, 57.8104, 55.699997, -22.0507, 57.8104, -55.699997, 22.0507, -57.8104, 55.699997, 22.0507, -57.8104, 55.699997, -22.0507, -57.8104, -55.699997, 22.0507, -57.8104, 55.699997, 22.0507, 57.8104, 55.699997, 22.0507, -57.8104, 55.699997, -22.0507, -57.8104, 55.699997, 22.0507, -57.8104, 55.699997, 22.0507, 57.8104)
 
-[node name="Matariki" type="Node3D" unique_id=274072197 node_paths=PackedStringArray("door", "star1", "star2", "star3", "star4", "star5", "star6", "star7")]
+[node name="Matariki" type="Node3D" unique_id=274072197 node_paths=PackedStringArray("door", "star1", "star2", "star3", "star4", "star5", "star6", "star7") groups=["root_nodes"]]
 script = ExtResource("1_2vfwr")
 puzzle_scene = ExtResource("2_f3imc")
 door = NodePath("door")
@@ -56,6 +58,8 @@ star4 = NodePath("stars/Tupuārangi")
 star5 = NodePath("stars/Waipuna-ā-Rangi")
 star6 = NodePath("stars/Waitī")
 star7 = NodePath("stars/Waitā")
+star_pickup = ExtResource("3_61k64")
+open_telecsope = ExtResource("4_o01ik")
 
 [node name="CharacterBody3D" parent="." unique_id=473672106 instance=ExtResource("2_6im2a")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 6.6979256, -2)
@@ -247,7 +251,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.005847, 6.8977413, -14.29
 [node name="stars" type="Node" parent="." unique_id=1182853050]
 
 [node name="Matariki" type="Area3D" parent="stars" unique_id=1278081269]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.0431104, 28.186068, 18.353584)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.043, 28.625, 18.354)
 script = ExtResource("2_2vfwr")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="stars/Matariki" unique_id=1573737295]
@@ -258,7 +262,7 @@ billboard = 1
 texture = ExtResource("15_m0rnr")
 
 [node name="Ururangi" type="Area3D" parent="stars" unique_id=1173463425]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -41.818336, 15.037649, 16.07368)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -41.818, 15.538, 16.074)
 script = ExtResource("2_2vfwr")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="stars/Ururangi" unique_id=1492932518]
@@ -269,7 +273,7 @@ billboard = 1
 texture = ExtResource("16_blbj1")
 
 [node name="Tupuānuku" type="Area3D" parent="stars" unique_id=2103009616]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.416138, 12.11283, 61.531475)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.416, 12.613, 61.531)
 script = ExtResource("2_2vfwr")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="stars/Tupuānuku" unique_id=442206441]
@@ -280,7 +284,7 @@ billboard = 1
 texture = ExtResource("17_61k64")
 
 [node name="Tupuārangi" type="Area3D" parent="stars" unique_id=2134248688]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48.873302, 8.7303295, 9.076315)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48.873, 9.23, 9.076)
 script = ExtResource("2_2vfwr")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="stars/Tupuārangi" unique_id=6799310]
@@ -291,7 +295,7 @@ billboard = 1
 texture = ExtResource("18_o01ik")
 
 [node name="Waipuna-ā-Rangi" type="Area3D" parent="stars" unique_id=584928568]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -37.285366, 8.581332, -23.62075)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -37.285, 9.081, -23.621)
 script = ExtResource("2_2vfwr")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="stars/Waipuna-ā-Rangi" unique_id=521592104]
@@ -302,7 +306,7 @@ billboard = 1
 texture = ExtResource("19_0wubq")
 
 [node name="Waitī" type="Area3D" parent="stars" unique_id=1811489364]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.283745, 23.10279, 50.732918)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.284, 23.603, 50.733)
 script = ExtResource("2_2vfwr")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="stars/Waitī" unique_id=1264329845]
@@ -313,7 +317,7 @@ billboard = 1
 texture = ExtResource("20_3cp8y")
 
 [node name="Waitā" type="Area3D" parent="stars" unique_id=692170886]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.381222, 3.5975742, -18.16135)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.381, 4.098, -18.161)
 script = ExtResource("2_2vfwr")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="stars/Waitā" unique_id=1892506345]
@@ -335,3 +339,6 @@ transform = Transform3D(0.5870366, 0, -0.80956036, 0, 1, 0, 0.80956036, 0, 0.587
 [node name="door" parent="." unique_id=914969382 instance=ExtResource("16_h74lm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2868284, 5.0841403, -6.045226)
 scene = ExtResource("17_h74lm")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1746907978]
+transform = Transform3D(0.5181873, -0.32673806, -0.790395, -0.040438592, 0.91375625, -0.40424567, 0.85431075, 0.24143736, 0.46028396, 1.9319215, 25.970982, 23.518557)

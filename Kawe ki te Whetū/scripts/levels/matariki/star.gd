@@ -5,7 +5,7 @@ signal collected(star_id: StringName)
 @export var star_id: StringName
 
 @export_group("Bobbing Settings")
-@export var bob_height : float = 12.0       # Distance (pixels or units) to float up and down
+@export var bob_height : float = 0.5       # Distance (pixels or units) to float up and down
 @export var cycle_duration : float = 2.0    # Duration in seconds for a full up-and-down loop
 @export var random_offset : bool = true     # Offsets start time so multiple stars don't move in sync
 @export var trans_type : Tween.TransitionType = Tween.TRANS_SINE

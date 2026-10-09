@@ -7,7 +7,7 @@ const HIDE_WAIT_TIME := 0.35
 const INTERACT_DISTANCE := 5.0
 
 @export_group("Player stats")
-@export var move_speed := 12.0
+@export var move_speed := 60.0
 @export var jump_velocity := 16.0
 
 @export_group("In scene")

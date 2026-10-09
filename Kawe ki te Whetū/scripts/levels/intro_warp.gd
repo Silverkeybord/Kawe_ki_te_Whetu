@@ -6,22 +6,23 @@ const TEXT_TWEEN_TIME := 0.8
 @export var warp_rect : ColorRect 
 @export var white_out_rect := ColorRect
 @export var next_scene : PackedScene
+@export var portal_change_sound : AudioStream
 
 var intro_message := [
 	{
-		"duration" : 2,
+		"duration" : 1.5,
 		"message" : "You are being taken away"
 	},
 	{
-		"duration" : 1.5,
+		"duration" : 1.25,
 		"message" : "To an alternate place"
 	},
 	{
-		"duration" : 1.5,
+		"duration" : 1.25,
 		"message" : "To find where"
 	},
 	{
-		"duration" : 2,
+		"duration" : 1.5,
 		"message" : "You belong in the stars"
 	},
 ]
@@ -83,6 +84,7 @@ func play_intro_sequence() -> void:
 		start_warp.tween_property(mat, "shader_parameter/streak_density", 150.0, 2).set_ease(Tween.EASE_IN)
 		start_warp.tween_property(mat, "shader_parameter/blur_amount", 0.8, 2).set_ease(Tween.EASE_IN)
 	
+	HelperFunctions.spawn_temp_sound(portal_change_sound)
 	
 	var fade_to_white_tween := create_tween().set_parallel(true)
 	fade_to_white_tween.tween_property(white_out_rect, "modulate", Color("ffffffff"), 2).set_ease(Tween.EASE_IN)

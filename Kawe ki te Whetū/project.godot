@@ -39,6 +39,10 @@ folder_colors={
 "res://sounds/": "green"
 }
 
+[global_group]
+
+root_nodes=""
+
 [input]
 
 forward={

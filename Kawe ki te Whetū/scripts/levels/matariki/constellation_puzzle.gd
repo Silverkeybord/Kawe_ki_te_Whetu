@@ -55,12 +55,14 @@ var selected_star_index := -1
 	$StarTray/Waita
 ]
 
+
 func _ready() -> void:
 	for index in STAR_COUNT:
 		target_buttons[index].pressed.connect(_on_target_pressed.bind(index))
 		target_buttons[index].connect("star_dropped", _on_star_dropped)
 		star_buttons[index].pressed.connect(_on_star_pressed.bind(index))
 	close_button.pressed.connect(queue_free)
+
 
 func _on_star_pressed(star_index: int) -> void:
 	if placed_stars.values().has(star_index):
@@ -98,6 +100,9 @@ func _place_star(target_index: int, star_index: int) -> void:
 
 	placed_stars[target_index] = star_index
 	target_buttons[target_index].icon = star_buttons[star_index].icon
+	var empty_style := StyleBoxEmpty.new()
+	for style_name in [&"normal", &"hover", &"pressed", &"disabled", &"focus"]:
+		target_buttons[target_index].add_theme_stylebox_override(style_name, empty_style)
 	target_labels[target_index].text = STAR_NAMES[star_index]
 	target_labels[target_index].show()
 	star_buttons[star_index].call("mark_placed")
@@ -108,3 +113,4 @@ func _place_star(target_index: int, star_index: int) -> void:
 	if placed_stars.size() == STAR_COUNT:
 		status_label.text = "Matariki is complete!"
 		puzzle_completed.emit()
+		queue_free()

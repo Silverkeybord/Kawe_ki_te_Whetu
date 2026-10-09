@@ -1,14 +1,15 @@
 [gd_scene format=3 uid="uid://cat4ohlfdq4qs"]
 
 [ext_resource type="Script" uid="uid://bi6kmohxhlt26" path="res://scripts/levels/intro_warp.gd" id="1_3wpxu"]
-[ext_resource type="PackedScene" uid="uid://b1fvxlbx2fut1" path="res://scenes/levels/moon_phases/moon_phases.tscn" id="2_2u054"]
+[ext_resource type="PackedScene" uid="uid://xxdbwy5f64lj" path="res://scenes/levels/moon_phases/moon_phases.tscn" id="2_2u054"]
 [ext_resource type="Shader" uid="uid://crdfnsnnwfxlo" path="res://advanced_visuals/shader_code/warp_shader.gdshader" id="2_71ulb"]
+[ext_resource type="AudioStream" uid="uid://be8let5f2c0ov" path="res://sounds/person_enters_space_portal.wav" id="3_ntv0d"]
 [ext_resource type="FontFile" uid="uid://brcqf16f67xlg" path="res://other_assets/fonts/Boring Time.otf" id="4_2u054"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_g4v7s"]
 shader = ExtResource("2_71ulb")
 shader_parameter/warp_speed = 7.10000010579852
-shader_parameter/spin_speed = 7.450599959213378e-08
+shader_parameter/spin_speed = 7.450599959213379e-08
 shader_parameter/streak_density = 70.0
 shader_parameter/streak_length = 0.68999998457712
 shader_parameter/blur_amount = 0.65999998524768
@@ -21,12 +22,13 @@ font = ExtResource("4_2u054")
 font_size = 32
 font_color = Color(0.66420317, 0.8483305, 0.98890275, 1)
 
-[node name="CanvasLayer" type="CanvasLayer" unique_id=2069608460 node_paths=PackedStringArray("label", "warp_rect", "white_out_rect")]
+[node name="CanvasLayer" type="CanvasLayer" unique_id=2069608460 node_paths=PackedStringArray("label", "warp_rect", "white_out_rect") groups=["root_nodes"]]
 script = ExtResource("1_3wpxu")
 label = NodePath("Label")
 warp_rect = NodePath("warp_rect")
 white_out_rect = NodePath("white_out_rect")
 next_scene = ExtResource("2_2u054")
+portal_change_sound = ExtResource("3_ntv0d")
 
 [node name="warp_rect" type="ColorRect" parent="." unique_id=215874050]
 material = SubResource("ShaderMaterial_g4v7s")
