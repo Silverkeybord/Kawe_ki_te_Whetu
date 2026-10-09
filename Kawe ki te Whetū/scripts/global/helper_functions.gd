@@ -49,9 +49,6 @@ static func spawn_temp_sound(sound: AudioStream, pos: Vector3 = Vector3.ZERO) ->
 			return
 
 		new_sound.global_position = pos
-		new_sound.volume_db = sound.volume
-		new_sound.max_db = sound.max_db
-		new_sound.max_distance = sound.max_distance
 		new_sound.play()
 	else:
 		var new_sound: AudioStreamPlayer = TEMP_SOUND_SCENE.instantiate()
