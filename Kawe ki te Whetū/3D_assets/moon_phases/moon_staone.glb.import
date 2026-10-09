@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://cm2vinjtq5ht"
-path="res://.godot/imported/StoneTelescope.glb-6c431b948d44af649f711b0d87182259.scn"
+uid="uid://c28xq2am14636"
+path="res://.godot/imported/moon_staone.glb-389ff2d9a046f0a1d565d2957cb8b2e8.scn"
 
 [deps]
 
-source_file="res://3D_assets/moon_phases/StoneTelescope.glb"
-dest_files=["res://.godot/imported/StoneTelescope.glb-6c431b948d44af649f711b0d87182259.scn"]
+source_file="res://3D_assets/moon_phases/moon_staone.glb"
+dest_files=["res://.godot/imported/moon_staone.glb-389ff2d9a046f0a1d565d2957cb8b2e8.scn"]
 
 [params]
 

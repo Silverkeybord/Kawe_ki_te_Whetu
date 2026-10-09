@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://wbfis7hms76r"]
+
+[ext_resource type="PackedScene" uid="uid://c28xq2am14636" path="res://3D_assets/moon_phases/moon_staone.glb" id="1_pwkty"]
+
+[node name="moon_staone" unique_id=511238798 instance=ExtResource("1_pwkty")]
+
+[node name="Waystone_Base" parent="." index="0" unique_id=1965219314]
+transform = Transform3D(0.9238795, 0, 0.38268346, 0, 1, 0, -0.38268346, 0, 0.9238795, 0, 0, 0)
+
+[node name="Waystone_Moon" parent="." index="1" unique_id=1143111109]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.39, 0.205)
+
+[node name="Waystone_Phases" parent="." index="2" unique_id=1108208443]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.79, 0.205)
+
+[node name="Waystone_Stars" parent="." index="3" unique_id=1498123380]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.39, 0.205)
+
+[node name="Waystone_Stone" parent="." index="4" unique_id=1589934867]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.24, 0.175)

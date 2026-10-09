@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://b1fvxlbx2fut1"]
 
 [ext_resource type="Script" uid="uid://ba6tgn8i8ey1y" path="res://scripts/levels/moon_phases/moon_phases.gd" id="1_2ippw"]
+[ext_resource type="PackedScene" uid="uid://wbfis7hms76r" path="res://scenes/levels/moon_phases/moon_stone.tscn" id="2_8o4f3"]
 [ext_resource type="PackedScene" uid="uid://b02hlrndiu8iy" path="res://scenes/player.tscn" id="2_w3uki"]
 [ext_resource type="PackedScene" uid="uid://drmsqnuiwrqmy" path="res://scenes/levels/moon_phases/moon_phase_ground.tscn" id="3_x1ia4"]
 
@@ -9,6 +10,9 @@ data = PackedVector3Array(-150, 11.7322, 150, -149.00209, 11.718699, 148.9975, -
 
 [node name="MoonPhases" type="Node3D" unique_id=820559961]
 script = ExtResource("1_2ippw")
+
+[node name="moon_staone" parent="." unique_id=511238798 instance=ExtResource("2_8o4f3")]
+transform = Transform3D(0.0805828, 0, -1.497834, 0, 1.5, 0, 1.497834, 0, 0.0805828, -4.3819466, 41.930454, 0.47021294)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=372301817]
 
@@ -19,6 +23,6 @@ visible = false
 shape = SubResource("ConcavePolygonShape3D_7gmq5")
 
 [node name="CharacterBody3D" parent="." unique_id=473672106 instance=ExtResource("2_w3uki")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -72.0385, 16.117504, 0)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -76.50746, 12.313804, 0)
 
 [node name="Terrain_RollingHills_CentreHill_v2" parent="." unique_id=556822256 instance=ExtResource("3_x1ia4")]
