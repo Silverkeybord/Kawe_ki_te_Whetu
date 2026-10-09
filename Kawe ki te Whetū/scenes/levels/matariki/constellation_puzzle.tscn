@@ -1,0 +1,386 @@
+[gd_scene format=3 uid="uid://bx2wjsi6drmmf"]
+
+[ext_resource type="Script" uid="uid://bljn0vymhn82b" path="res://scripts/levels/matariki/star_piece_button.gd" id="2_jysgq"]
+[ext_resource type="Script" uid="uid://bkjuowb63xto5" path="res://scripts/levels/matariki/constellation_puzzle.gd" id="3_target"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_panel"]
+bg_color = Color(0.055, 0.075, 0.15, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.45, 0.72, 1, 1)
+
+[node name="ConstellationPuzzle" type="Control" unique_id=336557373]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("3_target")
+
+[node name="Background" type="ColorRect" parent="." unique_id=1347480247]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.015, 0.025, 0.07, 0.9)
+
+[node name="PanelBackground" type="Panel" parent="." unique_id=713460879]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -550.0
+offset_top = -310.0
+offset_right = 550.0
+offset_bottom = 310.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_panel")
+
+[node name="BoardArea" type="Control" parent="." unique_id=1591568089]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -450.0
+offset_top = -210.0
+offset_right = 450.0
+offset_bottom = 80.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="ConstellationLines" type="Node2D" parent="BoardArea" unique_id=1661934764]
+
+[node name="Line1" type="Line2D" parent="BoardArea/ConstellationLines" unique_id=731057348]
+points = PackedVector2Array(450, 42, 726, 118)
+width = 2.0
+default_color = Color(0.3, 0.43, 0.68, 1)
+
+[node name="Line2" type="Line2D" parent="BoardArea/ConstellationLines" unique_id=865154089]
+points = PackedVector2Array(726, 118, 583, 154)
+width = 2.0
+default_color = Color(0.3, 0.43, 0.68, 1)
+
+[node name="Line3" type="Line2D" parent="BoardArea/ConstellationLines" unique_id=1744031126]
+points = PackedVector2Array(583, 154, 468, 221)
+width = 2.0
+default_color = Color(0.3, 0.43, 0.68, 1)
+
+[node name="Line4" type="Line2D" parent="BoardArea/ConstellationLines" unique_id=1635732642]
+points = PackedVector2Array(468, 221, 299, 182)
+width = 2.0
+default_color = Color(0.3, 0.43, 0.68, 1)
+
+[node name="Line5" type="Line2D" parent="BoardArea/ConstellationLines" unique_id=1973184378]
+points = PackedVector2Array(299, 182, 183, 112)
+width = 2.0
+default_color = Color(0.3, 0.43, 0.68, 1)
+
+[node name="Line6" type="Line2D" parent="BoardArea/ConstellationLines" unique_id=668110021]
+points = PackedVector2Array(183, 112, 450, 42)
+width = 2.0
+default_color = Color(0.3, 0.43, 0.68, 1)
+
+[node name="Line7" type="Line2D" parent="BoardArea/ConstellationLines" unique_id=1015527355]
+points = PackedVector2Array(468, 221, 683, 202)
+width = 2.0
+default_color = Color(0.3, 0.43, 0.68, 1)
+
+[node name="Title" type="Label" parent="." unique_id=1768305276]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -375.0
+offset_top = -299.0
+offset_right = 375.0
+offset_bottom = -257.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 28
+text = "Build the Matariki constellation"
+horizontal_alignment = 1
+
+[node name="Status" type="Label" parent="." unique_id=1031930643]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -450.0
+offset_top = 148.0
+offset_right = 450.0
+offset_bottom = 176.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 17
+text = "Drag a star to its place, or click a star and then a position."
+horizontal_alignment = 1
+
+[node name="CloseButton" type="Button" parent="." unique_id=1337132081]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 440.0
+offset_top = -298.0
+offset_right = 530.0
+offset_bottom = -264.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Close"
+
+[node name="Target1" type="Button" parent="." unique_id=1123483699]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -71.0
+offset_top = -197.0
+offset_right = 71.0
+offset_bottom = -139.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 12
+text = "Matariki
+(empty)"
+script = ExtResource("2_jysgq")
+
+[node name="Target2" type="Button" parent="." unique_id=123473564]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 205.0
+offset_top = -121.0
+offset_right = 347.0
+offset_bottom = -63.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 12
+text = "Pōhutukawa
+(empty)"
+script = ExtResource("2_jysgq")
+
+[node name="Target3" type="Button" parent="." unique_id=287243427]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -53.0
+offset_top = -18.0
+offset_right = 89.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 12
+text = "Tupuānuku
+(empty)"
+script = ExtResource("2_jysgq")
+
+[node name="Target4" type="Button" parent="." unique_id=1934044002]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -338.0
+offset_top = -127.0
+offset_right = -196.0
+offset_bottom = -69.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 12
+text = "Tupuārangi
+(empty)"
+script = ExtResource("3_target")
+
+[node name="Target5" type="Button" parent="." unique_id=1608561198]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 62.0
+offset_top = -85.0
+offset_right = 204.0
+offset_bottom = -27.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 12
+text = "Waipuna-ā-Rangi
+(empty)"
+script = ExtResource("3_target")
+
+[node name="Target6" type="Button" parent="." unique_id=648005790]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -222.0
+offset_top = -57.0
+offset_right = -80.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 12
+text = "Waitī
+(empty)"
+script = ExtResource("3_target")
+
+[node name="Target7" type="Button" parent="." unique_id=853643567]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 162.0
+offset_top = -37.0
+offset_right = 304.0
+offset_bottom = 21.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 12
+text = "Waitā
+(empty)"
+script = ExtResource("3_target")
+
+[node name="Star1Button" type="Button" parent="." unique_id=1229211028]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -521.0
+offset_top = 205.0
+offset_right = -409.0
+offset_bottom = 261.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Star 1"
+script = ExtResource("3_target")
+
+[node name="Star2Button" type="Button" parent="." unique_id=734380154]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -366.0
+offset_top = 205.0
+offset_right = -254.0
+offset_bottom = 261.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Star 2"
+script = ExtResource("3_target")
+
+[node name="Star3Button" type="Button" parent="." unique_id=946903086]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -211.0
+offset_top = 205.0
+offset_right = -99.0
+offset_bottom = 261.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Star 3"
+script = ExtResource("3_target")
+
+[node name="Star4Button" type="Button" parent="." unique_id=1806823913]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -56.0
+offset_top = 205.0
+offset_right = 56.0
+offset_bottom = 261.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Star 4"
+script = ExtResource("3_target")
+
+[node name="Star5Button" type="Button" parent="." unique_id=873998479]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 99.0
+offset_top = 205.0
+offset_right = 211.0
+offset_bottom = 261.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Star 5"
+script = ExtResource("3_target")
+
+[node name="Star6Button" type="Button" parent="." unique_id=1435678967]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 254.0
+offset_top = 205.0
+offset_right = 366.0
+offset_bottom = 261.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Star 6"
+script = ExtResource("3_target")
+
+[node name="Star7Button" type="Button" parent="." unique_id=617162081]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 409.0
+offset_top = 205.0
+offset_right = 521.0
+offset_bottom = 261.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Star 7"
+script = ExtResource("3_target")

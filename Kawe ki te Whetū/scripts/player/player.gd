@@ -1,10 +1,17 @@
+class_name Player
 extends CharacterBody3D
 
 const GRAVITY := 40.0
+const HIDE_WAIT_TIME := 0.35
 
 @export_group("Player stats")
-@export var move_speed := 10.0
+@export var move_speed := 5.0
 @export var jump_velocity := 14.0
+
+
+@export_group("In scene")
+@export var player_mesh : MeshInstance3D
+@export var particles : GPUParticles3D
 
 
 ## Handles gravity, movement input, and jumping every physics frame.
@@ -32,3 +39,11 @@ func _physics_process(delta: float) -> void:
 		velocity.y = jump_velocity
 	
 	move_and_slide()
+
+
+func _toggle_player_visible(toggle: bool) -> void:
+	if not toggle:
+		await get_tree().create_timer(HIDE_WAIT_TIME).timeout
+	
+	player_mesh.visible = toggle
+	particles.visible = toggle

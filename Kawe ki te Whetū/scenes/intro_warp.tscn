@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://cat4ohlfdq4qs"]
+
+[ext_resource type="Script" uid="uid://bi6kmohxhlt26" path="res://scripts/levels/intro_warp.gd" id="1_3wpxu"]
+[ext_resource type="Shader" uid="uid://crdfnsnnwfxlo" path="res://warp_shader.gdshader" id="2_71ulb"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_g4v7s"]
+shader = ExtResource("2_71ulb")
+shader_parameter/warp_speed = 7.10000010579852
+shader_parameter/spin_speed = 0.5000000819565997
+shader_parameter/streak_density = 70.0
+shader_parameter/streak_length = 0.68999998457712
+shader_parameter/blur_amount = 0.65999998524768
+shader_parameter/background_color = Color(0, 0, 0.31764707, 1)
+shader_parameter/fringe_color = Color(0.48918676, 0.7534241, 0.9455156, 1)
+shader_parameter/core_color = Color(1, 0.8, 1, 1)
+
+[node name="CanvasLayer" type="CanvasLayer" unique_id=2069608460]
+script = ExtResource("1_3wpxu")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=215874050]
+material = SubResource("ShaderMaterial_g4v7s")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3

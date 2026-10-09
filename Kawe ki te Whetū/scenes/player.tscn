@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://cigt07puyg15e" path="res://scripts/player/player_camera.gd" id="2_qhqgy"]
 [ext_resource type="Script" uid="uid://wnhqkggchhd6" path="res://scripts/player/camera_follow.gd" id="3_dqkch"]
 [ext_resource type="Shader" uid="uid://i6rp7nctaru6" path="res://advanced_visuals/shader_code/player.gdshader" id="4_dqkch"]
+[ext_resource type="Shader" uid="uid://c1ve42qmftwnj" path="res://advanced_visuals/shader_code/player_particle.gdshader" id="5_qlg0r"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_g4v7s"]
 height = 1.5
@@ -15,20 +16,70 @@ radius = 0.2
 radius = 0.2
 
 [sub_resource type="SphereMesh" id="SphereMesh_g4v7s"]
-radius = 0.4
-height = 0.8
+radius = 0.2
+height = 0.4
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_57qmd"]
 render_priority = 0
 shader = ExtResource("4_dqkch")
-shader_parameter/inner_color = Color(1, 1, 1, 1)
-shader_parameter/glow_color = Color(0.7, 0.4, 1, 1)
-shader_parameter/fresnel_power = 8.0
-shader_parameter/core_size = 1.0
+shader_parameter/inner_color = Color(0.31764707, 0.78431374, 1, 1)
+shader_parameter/glow_color = Color(0.4730907, 1, 0.99916464, 1)
 shader_parameter/glow_intensity = 10.0
+shader_parameter/overall_alpha = 0.8
+shader_parameter/fresnel_power = 8.0
+shader_parameter/core_size = 1.5
+shader_parameter/spike_scale = 17.1970007693575
+shader_parameter/spike_speed = 3.3710001601225
+shader_parameter/spike_displacement = 0.2350000111625
+shader_parameter/spike_roughness = 2.5020001155851204
 
-[node name="CharacterBody3D" type="CharacterBody3D" unique_id=473672106]
+[sub_resource type="Curve" id="Curve_qlg0r"]
+_limits = [0.0, 10.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.9966555, 10), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_fjrip"]
+curve = SubResource("Curve_qlg0r")
+
+[sub_resource type="Gradient" id="Gradient_tuyoq"]
+colors = PackedColorArray(0, 0.8352941, 0.8392157, 0.76862746, 0.007843138, 0.9882353, 0.99215686, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_tuyoq"]
+gradient = SubResource("Gradient_tuyoq")
+
+[sub_resource type="Curve" id="Curve_tuyoq"]
+_limits = [-2.0, 5.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 4), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_smehm"]
+curve = SubResource("Curve_tuyoq")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_dqkch"]
+emission_shape = 1
+emission_sphere_radius = 0.2
+angular_velocity_curve = SubResource("CurveTexture_fjrip")
+orbit_velocity_curve = SubResource("CurveTexture_smehm")
+radial_velocity_min = 0.09997764
+radial_velocity_max = 0.29997763
+gravity = Vector3(0, 0, 0)
+color_ramp = SubResource("GradientTexture1D_tuyoq")
+color_initial_ramp = SubResource("GradientTexture1D_tuyoq")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_y4r1p"]
+render_priority = 0
+shader = ExtResource("5_qlg0r")
+shader_parameter/cube_color = Color(0.27202702, 0.9999998, 0.9987517, 0.3254902)
+shader_parameter/emission_strength = 0.1
+
+[sub_resource type="BoxMesh" id="BoxMesh_ur7pv"]
+material = SubResource("ShaderMaterial_y4r1p")
+size = Vector3(0.1, 0.1, 0.1)
+
+[node name="CharacterBody3D" type="CharacterBody3D" unique_id=473672106 node_paths=PackedStringArray("player_mesh", "particles")]
 script = ExtResource("1_3vyb7")
+player_mesh = NodePath("MeshInstance3D")
+particles = NodePath("GPUParticles3D")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1616892687]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
@@ -44,14 +95,14 @@ z_spring_arm = NodePath("z_axis")
 [node name="z_axis" type="SpringArm3D" parent="spring_arm_piviot" unique_id=599770322]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)
 shape = SubResource("SphereShape3D_g2els")
-spring_length = 0.75
+spring_length = 0.5
 
 [node name="z_marker" type="Marker3D" parent="spring_arm_piviot/z_axis" unique_id=1011208591]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1, 0, 0)
 
 [node name="xy_axis" type="SpringArm3D" parent="spring_arm_piviot" unique_id=1886192064]
 shape = SubResource("SphereShape3D_qhqgy")
-spring_length = 8.0
+spring_length = 3.0
 
 [node name="xy_marker" type="Marker3D" parent="spring_arm_piviot/xy_axis" unique_id=1242264865]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1, 0, 0)
@@ -60,7 +111,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1, 0, 0)
 script = ExtResource("3_dqkch")
 xy_camera_marker = NodePath("../xy_axis/xy_marker")
 z_camera_marker = NodePath("../z_axis/z_marker")
-lerp_power = 16.0
+lerp_power = 12.0
 
 [node name="Camera3D" type="Camera3D" parent="spring_arm_piviot/camera_follow" unique_id=911568017]
 
@@ -68,3 +119,10 @@ lerp_power = 16.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 mesh = SubResource("SphereMesh_g4v7s")
 surface_material_override/0 = SubResource("ShaderMaterial_57qmd")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="." unique_id=1650072240]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9818722, 0)
+amount = 80
+lifetime = 2.0
+process_material = SubResource("ParticleProcessMaterial_dqkch")
+draw_pass_1 = SubResource("BoxMesh_ur7pv")

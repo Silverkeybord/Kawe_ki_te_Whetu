@@ -18,11 +18,11 @@ shape = SubResource("BoxShape3D_g4v7s")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=842017987]
 mesh = SubResource("BoxMesh_g4v7s")
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="MeshInstance3D" unique_id=45550976]
-transform = Transform3D(1, 0, 0, 0, 0.8948975, 0.44627178, 0, -0.44627178, 0.8948975, 0, 19.824648, 0)
-
 [node name="CharacterBody3D" parent="." unique_id=473672106 instance=ExtResource("1_rkslx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 2, 1)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=129211107]
 environment = SubResource("Environment_g4v7s")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=45550976]
+transform = Transform3D(1, 0, 0, 0, 0.8948975, 0.44627178, 0, -0.44627178, 0.8948975, 0, 19.824648, 0)

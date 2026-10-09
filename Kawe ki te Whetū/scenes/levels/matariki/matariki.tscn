@@ -1,0 +1,141 @@
+[gd_scene format=3 uid="uid://fr1eavvp1mrf"]
+
+[ext_resource type="Script" uid="uid://byx2rt7qwas0a" path="res://scripts/levels/matariki/Matariki_level.gd" id="1_2vfwr"]
+[ext_resource type="Script" uid="uid://mvt8sp0ci2mu" path="res://scripts/levels/matariki/star.gd" id="2_2vfwr"]
+[ext_resource type="PackedScene" uid="uid://b02hlrndiu8iy" path="res://scenes/player.tscn" id="2_6im2a"]
+[ext_resource type="PackedScene" path="res://scenes/levels/matariki/constellation_puzzle.tscn" id="2_f3imc"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6im2a"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_4xual"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bu076"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_2o4pu"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jjr17"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_gcve2"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lpsvi"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_8xrtv"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lky11"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_m337j"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4b1aa"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_22enj"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_kx0qt"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_5amnh"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4xual"]
+size = Vector3(100, 1, 100)
+
+[sub_resource type="BoxMesh" id="BoxMesh_6im2a"]
+
+[sub_resource type="Environment" id="Environment_f3imc"]
+
+[node name="Matariki" type="Node3D" unique_id=274072197 node_paths=PackedStringArray("star1", "star2", "star3", "star4", "star5", "star6", "star7")]
+script = ExtResource("1_2vfwr")
+puzzle_scene = ExtResource("2_f3imc")
+star1 = NodePath("Matariki")
+star2 = NodePath("Pōhutukawa")
+star3 = NodePath("Tupuānuku")
+star4 = NodePath("Tupuārangi")
+star5 = NodePath("Waipuna-ā-Rangi")
+star6 = NodePath("Waitī")
+star7 = NodePath("Waitā")
+
+[node name="Matariki" type="Area3D" parent="." unique_id=1278081269]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.2511497, 1.8772106, 0)
+script = ExtResource("2_2vfwr")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Matariki" unique_id=1573737295]
+shape = SubResource("BoxShape3D_6im2a")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Matariki" unique_id=1893559985]
+mesh = SubResource("BoxMesh_4xual")
+
+[node name="Pōhutukawa" type="Area3D" parent="." unique_id=1173463425]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.017502, 1.8911877, 0)
+script = ExtResource("2_2vfwr")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Pōhutukawa" unique_id=1492932518]
+shape = SubResource("BoxShape3D_bu076")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Pōhutukawa" unique_id=436488795]
+mesh = SubResource("BoxMesh_2o4pu")
+
+[node name="Tupuānuku" type="Area3D" parent="." unique_id=2103009616]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.874189, 2.058648, 0)
+script = ExtResource("2_2vfwr")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Tupuānuku" unique_id=442206441]
+shape = SubResource("BoxShape3D_jjr17")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Tupuānuku" unique_id=1261985207]
+mesh = SubResource("BoxMesh_gcve2")
+
+[node name="Tupuārangi" type="Area3D" parent="." unique_id=2134248688]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.116157, 1.8146105, 0)
+script = ExtResource("2_2vfwr")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Tupuārangi" unique_id=6799310]
+shape = SubResource("BoxShape3D_lpsvi")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Tupuārangi" unique_id=1821048611]
+mesh = SubResource("BoxMesh_8xrtv")
+
+[node name="Waipuna-ā-Rangi" type="Area3D" parent="." unique_id=584928568]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.954134, 1.770031, 0)
+script = ExtResource("2_2vfwr")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Waipuna-ā-Rangi" unique_id=521592104]
+shape = SubResource("BoxShape3D_lky11")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Waipuna-ā-Rangi" unique_id=1646728386]
+mesh = SubResource("BoxMesh_m337j")
+
+[node name="Waitī" type="Area3D" parent="." unique_id=1811489364]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.623253, 1.5528822, 0)
+script = ExtResource("2_2vfwr")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Waitī" unique_id=1264329845]
+shape = SubResource("BoxShape3D_4b1aa")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Waitī" unique_id=653138540]
+mesh = SubResource("BoxMesh_22enj")
+
+[node name="Waitā" type="Area3D" parent="." unique_id=692170886]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.787697, 1.2828922, 0)
+script = ExtResource("2_2vfwr")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Waitā" unique_id=1892506345]
+shape = SubResource("BoxShape3D_kx0qt")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Waitā" unique_id=1009289180]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7256346, 0)
+mesh = SubResource("BoxMesh_5amnh")
+
+[node name="CharacterBody3D" parent="." unique_id=473672106 instance=ExtResource("2_6im2a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -2)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1325712053]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1141104546]
+shape = SubResource("BoxShape3D_4xual")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D" unique_id=335933072]
+transform = Transform3D(100, 0, 0, 0, 1, 0, 0, 0, 100, 0, 0, 0)
+mesh = SubResource("BoxMesh_6im2a")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=932970073]
+environment = SubResource("Environment_f3imc")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=703208180]
+transform = Transform3D(1, 0, 0, 0, -0.5278455, 0.8493404, 0, -0.8493404, -0.5278455, 13.3139715, 14.740839, -7.1788645)
