@@ -11,8 +11,8 @@ enum MoonPhases {
 	WANING_CRESCENT
 }
 
+const INTERACTION_RANGE := 5
 const QUESTION_FORMAT := "Q : %s"
-
 const QA_KEY := {
 	1 : {
 		"question" : "Which Moon phase is almost invisible from Earth and marks the beginning of many maramataka lunar months?",
@@ -80,7 +80,17 @@ const QA_KEY := {
 	}
 }
 
+@export var moon_stone : Node3D
+@export var player : Player
+@export var moon_phase_puzzle : CanvasLayer
+
 var question_index := 0
+
+
+func _process(_delta: float) -> void:
+	if Input.is_action_just_pressed("interact"):
+		if player.global_position.distance_to(moon_stone.global_position) <= INTERACTION_RANGE:
+			pass
 
 
 func generate_random_question_order() -> Array:
