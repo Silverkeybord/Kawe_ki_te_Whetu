@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://cqqk3yf6xwdxb"]
+
+[ext_resource type="Script" uid="uid://bcmrih1unukxp" path="res://scripts/end_credits.gd" id="1_dhn2b"]
+[ext_resource type="Texture2D" uid="uid://blkrlr5jgqdvc" path="res://2D_assets/credit_background.jpeg" id="2_325g6"]
+
+[node name="end_creditd" type="CanvasLayer" unique_id=1735537873 node_paths=PackedStringArray("control")]
+script = ExtResource("1_dhn2b")
+credit_lines = Array[String](["Kawe ki te Whetū", "", "Created by", "Absent Minded", "", "", "", "", "", "", ""])
+control = NodePath("")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=623521593]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_325g6")
+metadata/_edit_use_anchors_ = true

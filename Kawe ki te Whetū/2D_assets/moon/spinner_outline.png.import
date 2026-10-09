@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bsmmibu7kylj5"
-path="res://.godot/imported/Star2.png-d9a83fef39dec29e79edba002e023c6e.ctex"
+uid="uid://se4dkbhgeps4"
+path="res://.godot/imported/spinner_outline.png-f4b075d33ed7dfd9d93267ea1becc473.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://2D_assets/stars/Star2.png"
-dest_files=["res://.godot/imported/Star2.png-d9a83fef39dec29e79edba002e023c6e.ctex"]
+source_file="res://2D_assets/moon/spinner_outline.png"
+dest_files=["res://.godot/imported/spinner_outline.png-f4b075d33ed7dfd9d93267ea1becc473.ctex"]
 
 [params]
 

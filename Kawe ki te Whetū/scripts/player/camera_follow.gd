@@ -6,6 +6,9 @@ extends Node3D
 
 
 func _process(delta: float) -> void:
+	if Global.moon_puzzle_active:
+		return
+	
 	if xy_camera_marker == null or z_camera_marker == null:
 		return
 	

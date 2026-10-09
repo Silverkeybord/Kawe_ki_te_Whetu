@@ -31,7 +31,7 @@ const THIRD_PERSON_Z_SPRING_LENGTH: float = 0.5
 @export var z_spring_arm: SpringArm3D
 
 var pitch: float = 0.0
-var zoom_value: float = 3.0
+var zoom_value: float = 5.0
 
 
 func _ready() -> void:
@@ -40,6 +40,9 @@ func _ready() -> void:
 
 # takes all inputs and turns them into camera movement
 func _input(event: InputEvent) -> void:
+	if Global.moon_puzzle_active:
+		return
+	
 	if event is InputEventMouseMotion and Global.mouse_captured:
 		_pan_and_pitch(event as InputEventMouseMotion)
 	
@@ -53,7 +56,8 @@ func _pan_and_pitch(event: InputEventMouseMotion) -> void:
 	if player == null:
 		return
 	
-	player.rotation.y -= event.relative.x * Global.sensitivity * BASE_SENSITIVITY
+	# Rotate the camera controller around Y instead of rotating the player directly
+	rotation.y -= event.relative.x * Global.sensitivity * BASE_SENSITIVITY
 	
 	pitch -= event.relative.y * Global.sensitivity * BASE_SENSITIVITY
 	pitch = clampf(pitch, MIN_PITCH, MAX_PITCH)

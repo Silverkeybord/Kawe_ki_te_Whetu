@@ -94,6 +94,7 @@ tracks/0/keys = {
 [sub_resource type="Animation" id="Animation_tuyoq"]
 resource_name = "bob"
 length = 3.0
+loop_mode = 1
 tracks/0/type = "bezier"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -112,47 +113,48 @@ _data = {
 &"bob": SubResource("Animation_tuyoq")
 }
 
-[node name="CharacterBody3D" type="CharacterBody3D" unique_id=473672106 node_paths=PackedStringArray("player_mesh", "particles")]
+[node name="CharacterBody3D" type="CharacterBody3D" unique_id=473672106 node_paths=PackedStringArray("player_mesh", "particles", "camera_controller")]
 script = ExtResource("1_3vyb7")
 player_mesh = NodePath("bob_node/MeshInstance3D")
 particles = NodePath("bob_node/GPUParticles3D")
+camera_controller = NodePath("spring_arm_piviot")
 metadata/player = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1616892687]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
 shape = SubResource("CapsuleShape3D_g4v7s")
 
-[node name="bob_node" type="Node3D" parent="." unique_id=369693652]
-
-[node name="spring_arm_piviot" type="Node3D" parent="bob_node" unique_id=1782938155 node_paths=PackedStringArray("player", "xy_spring_arm", "z_spring_arm")]
+[node name="spring_arm_piviot" type="Node3D" parent="." unique_id=1782938155 node_paths=PackedStringArray("player", "xy_spring_arm", "z_spring_arm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9656341, 0)
 script = ExtResource("2_qhqgy")
-player = NodePath("../..")
+player = NodePath("..")
 xy_spring_arm = NodePath("xy_axis")
 z_spring_arm = NodePath("z_axis")
 
-[node name="z_axis" type="SpringArm3D" parent="bob_node/spring_arm_piviot" unique_id=599770322]
+[node name="z_axis" type="SpringArm3D" parent="spring_arm_piviot" unique_id=599770322]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)
 shape = SubResource("SphereShape3D_g2els")
 spring_length = 0.5
 
-[node name="z_marker" type="Marker3D" parent="bob_node/spring_arm_piviot/z_axis" unique_id=1011208591]
+[node name="z_marker" type="Marker3D" parent="spring_arm_piviot/z_axis" unique_id=1011208591]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1, 0, 0)
 
-[node name="xy_axis" type="SpringArm3D" parent="bob_node/spring_arm_piviot" unique_id=1886192064]
+[node name="xy_axis" type="SpringArm3D" parent="spring_arm_piviot" unique_id=1886192064]
 shape = SubResource("SphereShape3D_qhqgy")
-spring_length = 3.0
+spring_length = 5.0
 
-[node name="xy_marker" type="Marker3D" parent="bob_node/spring_arm_piviot/xy_axis" unique_id=1242264865]
+[node name="xy_marker" type="Marker3D" parent="spring_arm_piviot/xy_axis" unique_id=1242264865]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1, 0, 0)
 
-[node name="camera_follow" type="Node3D" parent="bob_node/spring_arm_piviot" unique_id=1907725712 node_paths=PackedStringArray("xy_camera_marker", "z_camera_marker")]
+[node name="camera_follow" type="Node3D" parent="spring_arm_piviot" unique_id=1907725712 node_paths=PackedStringArray("xy_camera_marker", "z_camera_marker")]
 script = ExtResource("3_dqkch")
 xy_camera_marker = NodePath("../xy_axis/xy_marker")
 z_camera_marker = NodePath("../z_axis/z_marker")
 lerp_power = 12.0
 
-[node name="Camera3D" type="Camera3D" parent="bob_node/spring_arm_piviot/camera_follow" unique_id=911568017]
+[node name="Camera3D" type="Camera3D" parent="spring_arm_piviot/camera_follow" unique_id=911568017]
+
+[node name="bob_node" type="Node3D" parent="." unique_id=369693652]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="bob_node" unique_id=456788064]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -168,3 +170,4 @@ draw_pass_1 = SubResource("BoxMesh_ur7pv")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=358287736]
 libraries/ = SubResource("AnimationLibrary_fjrip")
+autoplay = &"bob"

@@ -5,12 +5,12 @@ signal puzzle_completed
 const STAR_COUNT := 7
 const STAR_NAMES := [
 	"Matariki",
-	"Pōhutukawa",
-	"Tupuānuku",
-	"Tupuārangi",
-	"Waipuna-ā-Rangi",
-	"Waitī",
-	"Waitā"
+	"Ururangi",
+	"Tupuanuku",
+	"Tupuarangi",
+	"Waipuna-a-Rangi",
+	"Waiti",
+	"Waita"
 ]
 
 var placed_stars: Dictionary = {}
@@ -20,7 +20,7 @@ var selected_star_index := -1
 @onready var close_button: Button = $CloseButton
 @onready var star_labels: Array[Label] = [
 	$StarTray/MatarikiName,
-	$StarTray/PohutukawaName,
+	$StarTray/UrurangiName,
 	$StarTray/TupuanukuName,
 	$StarTray/TupuarangiName,
 	$StarTray/WaipunarangiName,
@@ -29,7 +29,7 @@ var selected_star_index := -1
 ]
 @onready var target_buttons: Array[Button] = [
 	$CenterBox/TargetMatariki,
-	$CenterBox/TargetPohutukawa,
+	$CenterBox/TargetUrurangi,
 	$CenterBox/TargetTupuanuku,
 	$CenterBox/TargetTupuarangi,
 	$CenterBox/TargetWaipunarangi,
@@ -38,7 +38,7 @@ var selected_star_index := -1
 ]
 @onready var target_labels: Array[Label] = [
 	$CenterBox/PlacedNameMatariki,
-	$CenterBox/PlacedNamePohutukawa,
+	$CenterBox/PlacedNameUrurangi,
 	$CenterBox/PlacedNameTupuanuku,
 	$CenterBox/PlacedNameTupuarangi,
 	$CenterBox/PlacedNameWaipunarangi,
@@ -47,7 +47,7 @@ var selected_star_index := -1
 ]
 @onready var star_buttons: Array[Button] = [
 	$StarTray/Matariki,
-	$StarTray/Pohutukawa,
+	$StarTray/Ururangi,
 	$StarTray/Tupuanuku,
 	$StarTray/Tupuarangi,
 	$StarTray/Waipunarangi,
@@ -61,7 +61,6 @@ func _ready() -> void:
 		target_buttons[index].connect("star_dropped", _on_star_dropped)
 		star_buttons[index].pressed.connect(_on_star_pressed.bind(index))
 	close_button.pressed.connect(queue_free)
-
 
 func _on_star_pressed(star_index: int) -> void:
 	if placed_stars.values().has(star_index):

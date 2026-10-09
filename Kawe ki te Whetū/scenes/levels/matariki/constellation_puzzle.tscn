@@ -1,15 +1,16 @@
 [gd_scene format=3 uid="uid://bx2wjsi6drmmf"]
 
+[ext_resource type="Texture2D" uid="uid://dqn376cb8nm1u" path="res://2D_assets/better_stars/Star1.png" id="2_0xv3y"]
 [ext_resource type="Script" uid="uid://bkjuowb63xto5" path="res://scripts/levels/matariki/constellation_puzzle.gd" id="2_puzzle"]
 [ext_resource type="Script" uid="uid://bljn0vymhn82b" path="res://scripts/levels/matariki/star_piece_button.gd" id="3_star"]
+[ext_resource type="Texture2D" uid="uid://bsmmibu7kylj5" path="res://2D_assets/better_stars/Star2.png" id="4_7yv1a"]
 [ext_resource type="Script" uid="uid://yxqfsct4mpyv" path="res://scripts/levels/matariki/constellation_target_button.gd" id="4_target"]
-[ext_resource type="Texture2D" uid="uid://dqn376cb8nm1u" path="res://2D_assets/stars/matariki.png" id="5_matariki"]
-[ext_resource type="Texture2D" uid="uid://bsmmibu7kylj5" path="res://2D_assets/stars/Tupuānuku.png" id="6_tupuanuku"]
-[ext_resource type="Texture2D" uid="uid://dhkiv0wvnyth6" path="res://2D_assets/stars/Tupuārangi.png" id="7_tupuarangi"]
-[ext_resource type="Texture2D" uid="uid://cmscf2uifnl57" path="res://2D_assets/stars/Ururangi.png" id="8_ururangi"]
-[ext_resource type="Texture2D" uid="uid://cyhmym6vnjy5o" path="res://2D_assets/stars/Waipunarangi.png" id="9_waipunarangi"]
-[ext_resource type="Texture2D" uid="uid://dclxa2ykr0145" path="res://2D_assets/stars/Waitā.png" id="10_waita"]
-[ext_resource type="Texture2D" uid="uid://cb17jqk56udob" path="res://2D_assets/stars/Waitī.png" id="11_waiti"]
+[ext_resource type="Texture2D" uid="uid://dhkiv0wvnyth6" path="res://2D_assets/better_stars/Star3.png" id="5_458su"]
+[ext_resource type="Texture2D" uid="uid://cmscf2uifnl57" path="res://2D_assets/better_stars/7.png" id="6_lm1cj"]
+[ext_resource type="Texture2D" uid="uid://cyhmym6vnjy5o" path="res://2D_assets/better_stars/6.png" id="7_si4ji"]
+[ext_resource type="Texture2D" uid="uid://dclxa2ykr0145" path="res://2D_assets/better_stars/5.png" id="8_biaac"]
+[ext_resource type="Texture2D" uid="uid://cb17jqk56udob" path="res://2D_assets/better_stars/Star4.png" id="9_nt8wy"]
+[ext_resource type="FontFile" uid="uid://brcqf16f67xlg" path="res://other_assets/fonts/Boring Time.otf" id="10_boring_time"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_circle"]
 bg_color = Color(0.06, 0.09, 0.16, 0.18)
@@ -22,6 +23,11 @@ corner_radius_top_left = 40
 corner_radius_top_right = 40
 corner_radius_bottom_right = 40
 corner_radius_bottom_left = 40
+
+[sub_resource type="LabelSettings" id="LabelSettings_BoringTime"]
+font = ExtResource("10_boring_time")
+font_size = 18
+font_color = Color(1, 1, 1, 1)
 
 [node name="ConstellationPuzzle" type="Control" unique_id=537457662]
 layout_mode = 3
@@ -42,6 +48,7 @@ grow_vertical = 2
 mouse_filter = 2
 
 [node name="Matariki" type="Button" parent="StarTray" unique_id=835966532]
+theme_override_fonts/font = ExtResource("10_boring_time")
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -54,12 +61,13 @@ offset_right = 42.0
 offset_bottom = 272.0
 grow_horizontal = 2
 grow_vertical = 2
-icon = ExtResource("5_matariki")
+icon = ExtResource("2_0xv3y")
 flat = true
 expand_icon = true
 script = ExtResource("3_star")
 
 [node name="MatarikiName" type="Label" parent="StarTray" unique_id=1626268686]
+label_settings = SubResource("LabelSettings_BoringTime")
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -73,11 +81,11 @@ offset_bottom = 302.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0.12, 0.17, 0.29, 1)
-theme_override_font_sizes/font_size = 18
 text = "Matariki"
 horizontal_alignment = 1
 
 [node name="Tupuanuku" type="Button" parent="StarTray" unique_id=849829704]
+theme_override_fonts/font = ExtResource("10_boring_time")
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -90,13 +98,14 @@ offset_right = -398.0
 offset_bottom = -154.0
 grow_horizontal = 2
 grow_vertical = 2
-icon = ExtResource("6_tupuanuku")
+icon = ExtResource("4_7yv1a")
 flat = true
 expand_icon = true
 script = ExtResource("3_star")
 star_index = 3
 
 [node name="TupuanukuName" type="Label" parent="StarTray" unique_id=1901666057]
+label_settings = SubResource("LabelSettings_BoringTime")
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -110,11 +119,11 @@ offset_bottom = -124.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0.12, 0.17, 0.29, 1)
-theme_override_font_sizes/font_size = 18
-text = "Tupuānuku"
+text = "Tupuanuku"
 horizontal_alignment = 1
 
 [node name="Tupuarangi" type="Button" parent="StarTray" unique_id=995685819]
+theme_override_fonts/font = ExtResource("10_boring_time")
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -127,13 +136,14 @@ offset_right = -398.0
 offset_bottom = 18.0
 grow_horizontal = 2
 grow_vertical = 2
-icon = ExtResource("7_tupuarangi")
+icon = ExtResource("5_458su")
 flat = true
 expand_icon = true
 script = ExtResource("3_star")
 star_index = 4
 
 [node name="TupuarangiName" type="Label" parent="StarTray" unique_id=2069034309]
+label_settings = SubResource("LabelSettings_BoringTime")
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -147,11 +157,11 @@ offset_bottom = 48.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0.12, 0.17, 0.29, 1)
-theme_override_font_sizes/font_size = 18
-text = "Tupuārangi"
+text = "Tupuarangi"
 horizontal_alignment = 1
 
-[node name="Pohutukawa" type="Button" parent="StarTray" unique_id=570125948]
+[node name="Ururangi" type="Button" parent="StarTray" unique_id=570125948]
+theme_override_fonts/font = ExtResource("10_boring_time")
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -164,13 +174,14 @@ offset_right = -398.0
 offset_bottom = 193.0
 grow_horizontal = 2
 grow_vertical = 2
-icon = ExtResource("8_ururangi")
+icon = ExtResource("6_lm1cj")
 flat = true
 expand_icon = true
 script = ExtResource("3_star")
 star_index = 2
 
-[node name="PohutukawaName" type="Label" parent="StarTray" unique_id=1797502358]
+[node name="UrurangiName" type="Label" parent="StarTray" unique_id=1797502358]
+label_settings = SubResource("LabelSettings_BoringTime")
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -184,11 +195,11 @@ offset_bottom = 223.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0.12, 0.17, 0.29, 1)
-theme_override_font_sizes/font_size = 18
-text = "Pōhutukawa"
+text = "Ururangi"
 horizontal_alignment = 1
 
 [node name="Waipunarangi" type="Button" parent="StarTray" unique_id=1494018636]
+theme_override_fonts/font = ExtResource("10_boring_time")
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -201,13 +212,14 @@ offset_right = 482.0
 offset_bottom = -154.0
 grow_horizontal = 2
 grow_vertical = 2
-icon = ExtResource("9_waipunarangi")
+icon = ExtResource("7_si4ji")
 flat = true
 expand_icon = true
 script = ExtResource("3_star")
 star_index = 5
 
 [node name="WaipunarangiName" type="Label" parent="StarTray" unique_id=1746461525]
+label_settings = SubResource("LabelSettings_BoringTime")
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -221,11 +233,11 @@ offset_bottom = -124.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0.12, 0.17, 0.29, 1)
-theme_override_font_sizes/font_size = 18
-text = "Waipuna-ā-Rangi"
+text = "Waipuna-a-Rangi"
 horizontal_alignment = 1
 
 [node name="Waita" type="Button" parent="StarTray" unique_id=94280070]
+theme_override_fonts/font = ExtResource("10_boring_time")
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -238,13 +250,14 @@ offset_right = 482.0
 offset_bottom = 18.0
 grow_horizontal = 2
 grow_vertical = 2
-icon = ExtResource("10_waita")
+icon = ExtResource("8_biaac")
 flat = true
 expand_icon = true
 script = ExtResource("3_star")
 star_index = 7
 
 [node name="WaitaName" type="Label" parent="StarTray" unique_id=1675727426]
+label_settings = SubResource("LabelSettings_BoringTime")
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -258,11 +271,11 @@ offset_bottom = 48.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0.12, 0.17, 0.29, 1)
-theme_override_font_sizes/font_size = 18
-text = "Waitā"
+text = "Waita"
 horizontal_alignment = 1
 
 [node name="Waiti" type="Button" parent="StarTray" unique_id=1348150504]
+theme_override_fonts/font = ExtResource("10_boring_time")
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -275,13 +288,14 @@ offset_right = 482.0
 offset_bottom = 193.0
 grow_horizontal = 2
 grow_vertical = 2
-icon = ExtResource("11_waiti")
+icon = ExtResource("9_nt8wy")
 flat = true
 expand_icon = true
 script = ExtResource("3_star")
 star_index = 6
 
 [node name="WaitiName" type="Label" parent="StarTray" unique_id=1030757093]
+label_settings = SubResource("LabelSettings_BoringTime")
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -295,8 +309,7 @@ offset_bottom = 223.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0.12, 0.17, 0.29, 1)
-theme_override_font_sizes/font_size = 18
-text = "Waitī"
+text = "Waiti"
 horizontal_alignment = 1
 
 [node name="CenterBox" type="Control" parent="." unique_id=647591842]
@@ -314,74 +327,13 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="ConstellationLines" type="Node2D" parent="CenterBox" unique_id=1161185219]
-
-[node name="Line1" type="Line2D" parent="CenterBox/ConstellationLines" unique_id=1101703903]
-points = PackedVector2Array(60, 55, 525, 100)
-width = 3.0
-default_color = Color(0.48, 0.63, 0.83, 1)
-
-[node name="Line2" type="Line2D" parent="CenterBox/ConstellationLines" unique_id=447089501]
-points = PackedVector2Array(525, 100, 530, 290)
-width = 3.0
-default_color = Color(0.48, 0.63, 0.83, 1)
-
-[node name="Line3" type="Line2D" parent="CenterBox/ConstellationLines" unique_id=645435559]
-points = PackedVector2Array(530, 290, 85, 290)
-width = 3.0
-default_color = Color(0.48, 0.63, 0.83, 1)
-
-[node name="Line4" type="Line2D" parent="CenterBox/ConstellationLines" unique_id=1871309932]
-points = PackedVector2Array(85, 290, 250, 330)
-width = 3.0
-default_color = Color(0.48, 0.63, 0.83, 1)
-
-[node name="Line5" type="Line2D" parent="CenterBox/ConstellationLines" unique_id=1010316929]
-points = PackedVector2Array(250, 330, 225, 200)
-width = 3.0
-default_color = Color(0.48, 0.63, 0.83, 1)
-
-[node name="Line6" type="Line2D" parent="CenterBox/ConstellationLines" unique_id=1818021806]
-points = PackedVector2Array(225, 200, 60, 55)
-width = 3.0
-default_color = Color(0.48, 0.63, 0.83, 1)
-
-[node name="Line7" type="Line2D" parent="CenterBox/ConstellationLines" unique_id=1247316373]
-points = PackedVector2Array(400, 220, 60, 55)
-width = 3.0
-default_color = Color(0.48, 0.63, 0.83, 1)
-
-[node name="Line8" type="Line2D" parent="CenterBox/ConstellationLines" unique_id=2001253561]
-points = PackedVector2Array(400, 220, 525, 100)
-width = 3.0
-default_color = Color(0.48, 0.63, 0.83, 1)
-
-[node name="Line9" type="Line2D" parent="CenterBox/ConstellationLines" unique_id=662853787]
-points = PackedVector2Array(400, 220, 530, 290)
-width = 3.0
-default_color = Color(0.48, 0.63, 0.83, 1)
-
-[node name="Line10" type="Line2D" parent="CenterBox/ConstellationLines" unique_id=478018848]
-points = PackedVector2Array(400, 220, 250, 330)
-width = 3.0
-default_color = Color(0.48, 0.63, 0.83, 1)
-
-[node name="Line11" type="Line2D" parent="CenterBox/ConstellationLines" unique_id=1824159197]
-points = PackedVector2Array(400, 220, 225, 200)
-width = 3.0
-default_color = Color(0.48, 0.63, 0.83, 1)
-
-[node name="Line12" type="Line2D" parent="CenterBox/ConstellationLines" unique_id=1110965691]
-points = PackedVector2Array(400, 220, 85, 290)
-width = 3.0
-default_color = Color(0.48, 0.63, 0.83, 1)
-
 [node name="TargetMatariki" type="Button" parent="CenterBox" unique_id=127246585]
+theme_override_fonts/font = ExtResource("10_boring_time")
 layout_mode = 0
-offset_left = 354.0
-offset_top = 174.0
-offset_right = 446.0
-offset_bottom = 266.0
+offset_left = 346.0
+offset_top = 109.0
+offset_right = 421.0
+offset_bottom = 184.0
 theme_override_styles/normal = SubResource("StyleBoxFlat_circle")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_circle")
 theme_override_styles/hover = SubResource("StyleBoxFlat_circle")
@@ -389,11 +341,12 @@ expand_icon = true
 script = ExtResource("4_target")
 
 [node name="TargetTupuanuku" type="Button" parent="CenterBox" unique_id=1475411287]
+theme_override_fonts/font = ExtResource("10_boring_time")
 layout_mode = 0
-offset_left = 488.0
-offset_top = 248.0
-offset_right = 572.0
-offset_bottom = 332.0
+offset_left = 554.0
+offset_top = 157.0
+offset_right = 629.0
+offset_bottom = 232.0
 theme_override_styles/normal = SubResource("StyleBoxFlat_circle")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_circle")
 theme_override_styles/hover = SubResource("StyleBoxFlat_circle")
@@ -402,11 +355,12 @@ script = ExtResource("4_target")
 target_index = 2
 
 [node name="TargetTupuarangi" type="Button" parent="CenterBox" unique_id=805068281]
+theme_override_fonts/font = ExtResource("10_boring_time")
 layout_mode = 0
-offset_left = 483.0
-offset_top = 58.0
-offset_right = 567.0
-offset_bottom = 142.0
+offset_left = 553.0
+offset_top = 46.0
+offset_right = 628.0
+offset_bottom = 121.0
 theme_override_styles/normal = SubResource("StyleBoxFlat_circle")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_circle")
 theme_override_styles/hover = SubResource("StyleBoxFlat_circle")
@@ -414,12 +368,13 @@ expand_icon = true
 script = ExtResource("4_target")
 target_index = 3
 
-[node name="TargetPohutukawa" type="Button" parent="CenterBox" unique_id=1078609379]
+[node name="TargetUrurangi" type="Button" parent="CenterBox" unique_id=1078609379]
+theme_override_fonts/font = ExtResource("10_boring_time")
 layout_mode = 0
-offset_left = 210.0
-offset_top = 288.0
-offset_right = 290.0
-offset_bottom = 372.0
+offset_left = 196.0
+offset_top = -22.0
+offset_right = 271.0
+offset_bottom = 53.0
 theme_override_styles/normal = SubResource("StyleBoxFlat_circle")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_circle")
 theme_override_styles/hover = SubResource("StyleBoxFlat_circle")
@@ -428,11 +383,12 @@ script = ExtResource("4_target")
 target_index = 1
 
 [node name="TargetWaipunarangi" type="Button" parent="CenterBox" unique_id=1474241853]
+theme_override_fonts/font = ExtResource("10_boring_time")
 layout_mode = 0
-offset_left = 18.0
-offset_top = 13.0
-offset_right = 102.0
-offset_bottom = 97.0
+offset_left = -3.0
+offset_top = 66.0
+offset_right = 72.0
+offset_bottom = 141.0
 theme_override_styles/normal = SubResource("StyleBoxFlat_circle")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_circle")
 theme_override_styles/hover = SubResource("StyleBoxFlat_circle")
@@ -441,11 +397,12 @@ script = ExtResource("4_target")
 target_index = 4
 
 [node name="TargetWaita" type="Button" parent="CenterBox" unique_id=1760414842]
+theme_override_fonts/font = ExtResource("10_boring_time")
 layout_mode = 0
-offset_left = 43.0
-offset_top = 248.0
-offset_right = 127.0
-offset_bottom = 332.0
+offset_left = 160.0
+offset_top = 287.0
+offset_right = 235.0
+offset_bottom = 362.0
 theme_override_styles/normal = SubResource("StyleBoxFlat_circle")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_circle")
 theme_override_styles/hover = SubResource("StyleBoxFlat_circle")
@@ -454,11 +411,12 @@ script = ExtResource("4_target")
 target_index = 6
 
 [node name="TargetWaiti" type="Button" parent="CenterBox" unique_id=1988263901]
+theme_override_fonts/font = ExtResource("10_boring_time")
 layout_mode = 0
-offset_left = 183.0
-offset_top = 158.0
-offset_right = 267.0
-offset_bottom = 242.0
+offset_left = 82.0
+offset_top = 369.0
+offset_right = 157.0
+offset_bottom = 444.0
 theme_override_styles/normal = SubResource("StyleBoxFlat_circle")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_circle")
 theme_override_styles/hover = SubResource("StyleBoxFlat_circle")
@@ -467,81 +425,77 @@ script = ExtResource("4_target")
 target_index = 5
 
 [node name="PlacedNameMatariki" type="Label" parent="CenterBox" unique_id=909984459]
-visible = false
+label_settings = SubResource("LabelSettings_BoringTime")
 layout_mode = 0
-offset_left = 310.0
-offset_top = 270.0
-offset_right = 490.0
-offset_bottom = 294.0
+offset_left = 294.0
+offset_top = 195.0
+offset_right = 474.0
+offset_bottom = 219.0
 theme_override_colors/font_color = Color(0.12, 0.17, 0.29, 1)
-theme_override_font_sizes/font_size = 16
 horizontal_alignment = 1
 
-[node name="PlacedNamePohutukawa" type="Label" parent="CenterBox" unique_id=819322989]
-visible = false
+[node name="PlacedNameUrurangi" type="Label" parent="CenterBox" unique_id=819322989]
+label_settings = SubResource("LabelSettings_BoringTime")
 layout_mode = 0
-offset_left = 155.0
-offset_top = 376.0
-offset_right = 345.0
-offset_bottom = 400.0
+offset_left = 139.0
+offset_top = 59.0
+offset_right = 329.0
+offset_bottom = 83.0
 theme_override_colors/font_color = Color(0.12, 0.17, 0.29, 1)
-theme_override_font_sizes/font_size = 16
 horizontal_alignment = 1
 
 [node name="PlacedNameTupuanuku" type="Label" parent="CenterBox" unique_id=2111370676]
-visible = false
+label_settings = SubResource("LabelSettings_BoringTime")
 layout_mode = 0
-offset_left = 440.0
-offset_top = 336.0
-offset_right = 620.0
-offset_bottom = 360.0
+offset_left = 504.0
+offset_top = 239.0
+offset_right = 684.0
+offset_bottom = 263.0
 theme_override_colors/font_color = Color(0.12, 0.17, 0.29, 1)
-theme_override_font_sizes/font_size = 16
 horizontal_alignment = 1
 
 [node name="PlacedNameTupuarangi" type="Label" parent="CenterBox" unique_id=572309902]
-visible = false
+label_settings = SubResource("LabelSettings_BoringTime")
 layout_mode = 0
-offset_left = 435.0
-offset_top = 146.0
-offset_right = 615.0
-offset_bottom = 170.0
+offset_left = 503.0
+offset_top = 128.0
+offset_right = 683.0
+offset_bottom = 152.0
 theme_override_colors/font_color = Color(0.12, 0.17, 0.29, 1)
-theme_override_font_sizes/font_size = 16
 horizontal_alignment = 1
 
 [node name="PlacedNameWaipunarangi" type="Label" parent="CenterBox" unique_id=742237799]
-visible = false
+label_settings = SubResource("LabelSettings_BoringTime")
 layout_mode = 0
-offset_top = 101.0
-offset_right = 150.0
-offset_bottom = 125.0
+offset_left = -40.0
+offset_top = 149.0
+offset_right = 110.0
+offset_bottom = 173.0
 theme_override_colors/font_color = Color(0.12, 0.17, 0.29, 1)
-theme_override_font_sizes/font_size = 16
 horizontal_alignment = 1
 
 [node name="PlacedNameWaiti" type="Label" parent="CenterBox" unique_id=1398655874]
-visible = false
+label_settings = SubResource("LabelSettings_BoringTime")
 layout_mode = 0
-offset_left = 135.0
-offset_top = 246.0
-offset_right = 315.0
-offset_bottom = 270.0
+offset_left = 28.0
+offset_top = 446.0
+offset_right = 208.0
+offset_bottom = 470.0
 theme_override_colors/font_color = Color(0.12, 0.17, 0.29, 1)
-theme_override_font_sizes/font_size = 16
 horizontal_alignment = 1
 
 [node name="PlacedNameWaita" type="Label" parent="CenterBox" unique_id=1933017407]
-visible = false
+label_settings = SubResource("LabelSettings_BoringTime")
 layout_mode = 0
-offset_top = 336.0
-offset_right = 170.0
-offset_bottom = 360.0
+offset_left = 114.0
+offset_top = 364.0
+offset_right = 284.0
+offset_bottom = 388.0
 theme_override_colors/font_color = Color(0.12, 0.17, 0.29, 1)
-theme_override_font_sizes/font_size = 16
 horizontal_alignment = 1
 
 [node name="Status" type="Label" parent="." unique_id=558200345]
+label_settings = SubResource("LabelSettings_BoringTime")
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -559,6 +513,7 @@ text = "Drag stars to their matching circles."
 horizontal_alignment = 1
 
 [node name="PuzzleTitle" type="Label" parent="." unique_id=1066315150]
+label_settings = SubResource("LabelSettings_BoringTime")
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -572,11 +527,11 @@ offset_bottom = -306.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0.12, 0.17, 0.29, 1)
-theme_override_font_sizes/font_size = 24
 text = "Place each star on the constellation"
 horizontal_alignment = 1
 
 [node name="CloseButton" type="Button" parent="." unique_id=1353403538]
+theme_override_fonts/font = ExtResource("10_boring_time")
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
