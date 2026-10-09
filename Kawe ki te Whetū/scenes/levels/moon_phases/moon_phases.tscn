@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://b1fvxlbx2fut1"]
+
+[ext_resource type="Script" uid="uid://ba6tgn8i8ey1y" path="res://scripts/levels/moon_phases/moon_phases.gd" id="1_2ippw"]
+[ext_resource type="Texture2D" uid="uid://bwfnmer85mu2o" path="res://2D_assets/sky/test_sky.jpeg" id="2_w3uki"]
+[ext_resource type="PackedScene" uid="uid://uf6be8hi3jip" path="res://3D_assets/ground/Terrain_RollingHills_CentreHill.glb" id="3_w3uki"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_x1ia4"]
+panorama = ExtResource("2_w3uki")
+
+[sub_resource type="Sky" id="Sky_3cuhy"]
+sky_material = SubResource("PanoramaSkyMaterial_x1ia4")
+
+[sub_resource type="Environment" id="Environment_7gmq5"]
+background_mode = 2
+background_color = Color(0.011764706, 0.19607843, 0.59607846, 1)
+sky = SubResource("Sky_3cuhy")
+fog_enabled = true
+fog_light_color = Color(0.11764706, 0.2901961, 0.43529412, 1)
+fog_sky_affect = 0.0
+fog_height = -41.43
+fog_height_density = 0.2124
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.075
+volumetric_fog_albedo = Color(0.11764706, 0.2901961, 0.43529412, 1)
+volumetric_fog_length = 60.0
+volumetric_fog_sky_affect = 0.584
+
+[node name="MoonPhases" type="Node3D" unique_id=820559961]
+script = ExtResource("1_2ippw")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=372301817]
+environment = SubResource("Environment_7gmq5")
+
+[node name="Terrain_RollingHills_CentreHill" parent="." unique_id=1399973633 instance=ExtResource("3_w3uki")]

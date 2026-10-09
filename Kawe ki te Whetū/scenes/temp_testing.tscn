@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bvn0qbjo2xier"]
 
 [ext_resource type="PackedScene" uid="uid://b02hlrndiu8iy" path="res://scenes/player.tscn" id="1_rkslx"]
+[ext_resource type="Texture2D" uid="uid://bwfnmer85mu2o" path="res://2D_assets/sky/test_sky.jpeg" id="2_11vet"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_g4v7s"]
 size = Vector3(50, 1, 50)
@@ -8,7 +9,26 @@ size = Vector3(50, 1, 50)
 [sub_resource type="BoxMesh" id="BoxMesh_g4v7s"]
 size = Vector3(50, 1, 50)
 
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_n08kp"]
+panorama = ExtResource("2_11vet")
+
+[sub_resource type="Sky" id="Sky_11vet"]
+sky_material = SubResource("PanoramaSkyMaterial_n08kp")
+
 [sub_resource type="Environment" id="Environment_g4v7s"]
+background_mode = 2
+background_color = Color(0.011764706, 0.19607843, 0.59607846, 1)
+sky = SubResource("Sky_11vet")
+fog_enabled = true
+fog_light_color = Color(0.11764706, 0.2901961, 0.43529412, 1)
+fog_sky_affect = 0.0
+fog_height = -41.43
+fog_height_density = 0.2124
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.075
+volumetric_fog_albedo = Color(0.11764706, 0.2901961, 0.43529412, 1)
+volumetric_fog_length = 60.0
+volumetric_fog_sky_affect = 0.584
 
 [node name="StaticBody3D" type="StaticBody3D" unique_id=1177622895]
 
@@ -19,10 +39,9 @@ shape = SubResource("BoxShape3D_g4v7s")
 mesh = SubResource("BoxMesh_g4v7s")
 
 [node name="CharacterBody3D" parent="." unique_id=473672106 instance=ExtResource("1_rkslx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 2, 1)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=129211107]
 environment = SubResource("Environment_g4v7s")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=45550976]
-transform = Transform3D(1, 0, 0, 0, 0.8948975, 0.44627178, 0, -0.44627178, 0.8948975, 0, 19.824648, 0)
+transform = Transform3D(-5.9604638e-08, 0.71379644, -0.70035326, -1.5426815e-08, 0.7003533, 0.7137964, 1, 5.33498e-08, -3.07327e-08, -5.586733, 21.909374, 3.8116689)

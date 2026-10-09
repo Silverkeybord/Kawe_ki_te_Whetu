@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://llrnc37drwjo"]
+
+[ext_resource type="PackedScene" uid="uid://dl8qyl6l18yyw" path="res://3D_assets/ground/GrassHills.glb" id="1_wa4vk"]
+[ext_resource type="Texture2D" uid="uid://bmfvyq2awhm1u" path="res://2D_assets/ground/4 blur.png" id="2_8fx7s"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_52big"]
+albedo_texture = ExtResource("2_8fx7s")
+
+[node name="GrassHills2" unique_id=1305511142 instance=ExtResource("1_wa4vk")]
+
+[node name="GrassHills" parent="." index="0" unique_id=674509812]
+surface_material_override/0 = SubResource("StandardMaterial3D_52big")

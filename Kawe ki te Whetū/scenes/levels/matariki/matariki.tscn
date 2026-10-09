@@ -3,7 +3,8 @@
 [ext_resource type="Script" uid="uid://byx2rt7qwas0a" path="res://scripts/levels/matariki/Matariki_level.gd" id="1_2vfwr"]
 [ext_resource type="Script" uid="uid://mvt8sp0ci2mu" path="res://scripts/levels/matariki/star.gd" id="2_2vfwr"]
 [ext_resource type="PackedScene" uid="uid://b02hlrndiu8iy" path="res://scenes/player.tscn" id="2_6im2a"]
-[ext_resource type="PackedScene" path="res://scenes/levels/matariki/constellation_puzzle.tscn" id="2_f3imc"]
+[ext_resource type="PackedScene" uid="uid://bx2wjsi6drmmf" path="res://scenes/levels/matariki/constellation_puzzle.tscn" id="2_f3imc"]
+[ext_resource type="PackedScene" uid="uid://dl8qyl6l18yyw" path="res://3D_assets/ground/GrassHills.glb" id="5_iopwc"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6im2a"]
 
@@ -35,8 +36,6 @@
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4xual"]
 size = Vector3(100, 1, 100)
-
-[sub_resource type="BoxMesh" id="BoxMesh_6im2a"]
 
 [sub_resource type="Environment" id="Environment_f3imc"]
 
@@ -130,12 +129,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -2)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1141104546]
 shape = SubResource("BoxShape3D_4xual")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D" unique_id=335933072]
-transform = Transform3D(100, 0, 0, 0, 1, 0, 0, 0, 100, 0, 0, 0)
-mesh = SubResource("BoxMesh_6im2a")
-
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=932970073]
 environment = SubResource("Environment_f3imc")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=703208180]
 transform = Transform3D(1, 0, 0, 0, -0.5278455, 0.8493404, 0, -0.8493404, -0.5278455, 13.3139715, 14.740839, -7.1788645)
+
+[node name="GrassHills2" parent="." unique_id=1305511142 instance=ExtResource("5_iopwc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.783007, 2.8004203, 4.473072)

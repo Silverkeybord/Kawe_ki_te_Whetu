@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://xxdbwy5f64lj"]
+
+[ext_resource type="FontFile" uid="uid://brcqf16f67xlg" path="res://other_assets/fonts/Boring Time.otf" id="1_itiao"]
+
+[node name="CanvasLayer" type="CanvasLayer" unique_id=1953183637]
+
+[node name="Control" type="Control" parent="." unique_id=1511405418]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="MarginContainer" type="MarginContainer" parent="Control" unique_id=638527865]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_bottom = 316
+metadata/_edit_use_anchors_ = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control/MarginContainer" unique_id=692297091]
+custom_minimum_size = Vector2(100, 0)
+custom_maximum_size = Vector2(1000, -1)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/normal_font = ExtResource("1_itiao")
+theme_override_font_sizes/normal_font_size = 24
+text = "Q : Which Moon phase is almost invisible from Earth and marks the beginning of many maramataka lunar months?"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1

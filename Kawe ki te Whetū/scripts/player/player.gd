@@ -1,6 +1,7 @@
 class_name Player
 extends CharacterBody3D
 
+const PLAYER_META := "player"
 const GRAVITY := 40.0
 const HIDE_WAIT_TIME := 0.35
 

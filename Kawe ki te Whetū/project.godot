@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="- Nova Hackaton"
-run/main_scene="uid://bvn0qbjo2xier"
+run/main_scene="uid://cat4ohlfdq4qs"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -21,6 +21,9 @@ Global="*uid://c0tavscqcbuyi"
 
 [display]
 
+window/size/viewport_width=1280
+window/size/viewport_height=720
+window/size/mode=3
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 
@@ -30,6 +33,7 @@ folder_colors={
 "res://2D_assets/": "red",
 "res://3D_assets/": "red",
 "res://advanced_visuals/": "purple",
+"res://other_assets/": "orange",
 "res://scenes/": "blue",
 "res://scripts/": "gray",
 "res://sounds/": "green"

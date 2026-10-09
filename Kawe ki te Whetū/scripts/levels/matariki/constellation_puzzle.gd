@@ -2,85 +2,110 @@ extends Control
 
 signal puzzle_completed
 
-const STAR_NAMES: Array[StringName] = [
-	&"Matariki",
-	&"Pōhutukawa",
-	&"Tupuānuku",
-	&"Tupuārangi",
-	&"Waipuna-ā-Rangi",
-	&"Waitī",
-	&"Waitā"
+const STAR_COUNT := 7
+const STAR_NAMES := [
+	"Matariki",
+	"Pōhutukawa",
+	"Tupuānuku",
+	"Tupuārangi",
+	"Waipuna-ā-Rangi",
+	"Waitī",
+	"Waitā"
 ]
 
 var placed_stars: Dictionary = {}
-var selected_star: StringName = &""
+var selected_star_index := -1
 
 @onready var status_label: Label = $Status
 @onready var close_button: Button = $CloseButton
-@onready var target_buttons: Array[Button] = [
-	$Target1, $Target2, $Target3, $Target4, $Target5, $Target6, $Target7
+@onready var star_labels: Array[Label] = [
+	$StarTray/MatarikiName,
+	$StarTray/PohutukawaName,
+	$StarTray/TupuanukuName,
+	$StarTray/TupuarangiName,
+	$StarTray/WaipunarangiName,
+	$StarTray/WaitiName,
+	$StarTray/WaitaName
 ]
-@onready var inventory_buttons: Array[Button] = [
-	$Star1Button, $Star2Button, $Star3Button, $Star4Button,
-	$Star5Button, $Star6Button, $Star7Button
+@onready var target_buttons: Array[Button] = [
+	$CenterBox/TargetMatariki,
+	$CenterBox/TargetPohutukawa,
+	$CenterBox/TargetTupuanuku,
+	$CenterBox/TargetTupuarangi,
+	$CenterBox/TargetWaipunarangi,
+	$CenterBox/TargetWaiti,
+	$CenterBox/TargetWaita
+]
+@onready var target_labels: Array[Label] = [
+	$CenterBox/PlacedNameMatariki,
+	$CenterBox/PlacedNamePohutukawa,
+	$CenterBox/PlacedNameTupuanuku,
+	$CenterBox/PlacedNameTupuarangi,
+	$CenterBox/PlacedNameWaipunarangi,
+	$CenterBox/PlacedNameWaiti,
+	$CenterBox/PlacedNameWaita
+]
+@onready var star_buttons: Array[Button] = [
+	$StarTray/Matariki,
+	$StarTray/Pohutukawa,
+	$StarTray/Tupuanuku,
+	$StarTray/Tupuarangi,
+	$StarTray/Waipunarangi,
+	$StarTray/Waiti,
+	$StarTray/Waita
 ]
 
 func _ready() -> void:
-	mouse_filter = Control.MOUSE_FILTER_STOP
-	for index in STAR_NAMES.size():
+	for index in STAR_COUNT:
 		target_buttons[index].pressed.connect(_on_target_pressed.bind(index))
 		target_buttons[index].connect("star_dropped", _on_star_dropped)
-		inventory_buttons[index].pressed.connect(_on_star_pressed.bind(STAR_NAMES[index]))
+		star_buttons[index].pressed.connect(_on_star_pressed.bind(index))
 	close_button.pressed.connect(queue_free)
 
-func _on_star_pressed(star_id: StringName) -> void:
-	var star_index := STAR_NAMES.find(star_id)
-	if star_index < 0:
-		return
-	if placed_stars.values().has(star_id):
-		status_label.text = "Star %d is already placed." % (star_index + 1)
-		return
-	selected_star = star_id
-	status_label.text = "Selected Star %d. Choose its matching position." % (
-		star_index + 1
-	)
 
-func _on_target_pressed(index: int) -> void:
-	if selected_star.is_empty():
-		status_label.text = "Choose a collected star first."
+func _on_star_pressed(star_index: int) -> void:
+	if placed_stars.values().has(star_index):
+		status_label.text = "That star has already been placed."
 		return
-	_place_star(index, selected_star)
+	selected_star_index = star_index
+	status_label.text = "Selected star. Choose its circle."
+
+
+func _on_target_pressed(target_index: int) -> void:
+	if placed_stars.has(target_index):
+		status_label.text = "That circle already has a star."
+		return
+	if selected_star_index < 0:
+		status_label.text = "Choose a star first."
+		return
+	_place_star(target_index, selected_star_index)
+
 
 func _on_star_dropped(target_index: int, star_index: int) -> void:
-	if star_index < 0 or star_index >= STAR_NAMES.size():
-		return
-	_place_star(target_index, STAR_NAMES[star_index])
+	_place_star(target_index, star_index)
 
-func _place_star(index: int, star_id: StringName) -> void:
-	if index < 0 or index >= STAR_NAMES.size():
+
+func _place_star(target_index: int, star_index: int) -> void:
+	if target_index < 0 or target_index >= STAR_COUNT:
 		return
-	if placed_stars.has(index):
-		status_label.text = "That position already has its star."
+	if star_index < 0 or star_index >= STAR_COUNT:
 		return
-	if star_id != STAR_NAMES[index]:
+	if placed_stars.has(target_index):
+		status_label.text = "That circle already has a star."
+		return
+	if target_index != star_index:
 		status_label.text = "That is not the right place for the star."
 		return
 
-	var star_index := STAR_NAMES.find(star_id)
-	if star_index < 0 or star_index >= inventory_buttons.size():
-		status_label.text = "That star is not available."
-		return
+	placed_stars[target_index] = star_index
+	target_buttons[target_index].icon = star_buttons[star_index].icon
+	target_labels[target_index].text = STAR_NAMES[star_index]
+	target_labels[target_index].show()
+	star_buttons[star_index].call("mark_placed")
+	star_labels[star_index].hide()
+	status_label.text = "Correct!"
+	selected_star_index = -1
 
-	placed_stars[index] = star_id
-	target_buttons[index].text = "%s\n✦ Star %d" % [
-		STAR_NAMES[index],
-		star_index + 1
-	]
-	target_buttons[index].disabled = true
-	inventory_buttons[star_index].disabled = true
-	status_label.text = "Correct: Star %d" % (star_index + 1)
-	selected_star = &""
-
-	if placed_stars.size() == STAR_NAMES.size():
-		status_label.text = "Matariki is complete! The stars are in their correct places."
+	if placed_stars.size() == STAR_COUNT:
+		status_label.text = "Matariki is complete!"
 		puzzle_completed.emit()
